@@ -9,6 +9,10 @@ class Photo < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users_who_like,
+             :through => :likes,
+             :source => :user
+
   # Validations
 
 end
