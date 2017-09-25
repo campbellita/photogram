@@ -27,14 +27,8 @@
         <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @photo.description %></textarea>
       </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :created_at, @photo.user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for image -->
       <div class="form-group">
