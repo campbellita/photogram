@@ -1,6 +1,9 @@
 class Like < ApplicationRecord
   # Direct associations
 
+  belongs_to :user,
+             :counter_cache => true
+
   belongs_to :photo,
              :counter_cache => true
 
