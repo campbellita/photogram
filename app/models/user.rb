@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   has_many   :photos,
              :dependent => :destroy
 
@@ -19,6 +22,22 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :photos_theyve_liked,
+             :through => :people_they_follow,
+             :source => :photos_they_like
+
+  has_many   :photos_they_have_liked,
+             :through => :people_they_follow,
+             :source => :photos
+
+  has_many   :photos_they_comment_on,
+             :through => :comments,
+             :source => :photo
+
+  has_many   :photos_they_like,
+             :through => :likes,
+             :source => :photo
+
   has_many   :followers,
              :through => :friend_requests_received,
              :source => :sender
@@ -26,14 +45,6 @@ class User < ApplicationRecord
   has_many   :people_they_follow,
              :through => :friend_request_sends,
              :source => :recipient
-
-  has_many   :fans,
-             :through => :likes,
-             :source => :photo
-
-  has_many   :photos_theyve_liked,
-             :through => :likes,
-             :source => :photo
 
   # Validations
 
