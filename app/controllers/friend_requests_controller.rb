@@ -23,6 +23,7 @@ class FriendRequestsController < ApplicationController
 
     @friend_request.sender_id = params[:sender_id]
     @friend_request.recipient_id = params[:recipient_id]
+    @friend_request.request_accepted = params[:request_accepted]
 
     save_status = @friend_request.save
 
@@ -51,6 +52,7 @@ class FriendRequestsController < ApplicationController
 
     @friend_request.sender_id = params[:sender_id]
     @friend_request.recipient_id = params[:recipient_id]
+    @friend_request.request_accepted = params[:request_accepted]
 
     save_status = @friend_request.save
 

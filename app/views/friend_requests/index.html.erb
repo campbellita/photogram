@@ -11,6 +11,7 @@
       <tr>
         <th>Sender</th>
         <th>Recipient</th>
+        <th>Request accepted</th>
         <th>Actions</th>
       </tr>
 
@@ -30,6 +31,7 @@
             </a>
           <% end %>
         </td>
+        <td><%= friend_request.request_accepted %></td>
         <td>
           <a href="/friend_requests/<%= friend_request.id %>" class="btn btn-primary">Show</a>
           <a href="/friend_requests/<%= friend_request.id %>/edit" class="btn btn-warning">Edit</a>
